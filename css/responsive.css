@@ -142,6 +142,38 @@
     grid-column: span 2;
     max-width: none;
   }
+
+  /* Experience (Практический опыт) */
+  .experience__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* Teaching (Преподавание) */
+  .teaching__inner {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-2xl);
+  }
+
+  .teaching__image {
+    max-width: 400px;
+    margin: 0 auto;
+  }
+
+  /* Tools Bridge */
+  .tools-bridge__inner {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-2xl);
+    text-align: center;
+  }
+
+  .tools-bridge__badges {
+    align-items: center;
+  }
+
+  /* Audience (Для кого я работаю) */
+  .audience__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 /* ===== MOBILE (< 768px) ===== */
@@ -351,6 +383,71 @@
   .footer__legal {
     flex-wrap: wrap;
     justify-content: center;
+  }
+
+  /* Experience (Практический опыт) */
+  .experience__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .experience-card {
+    padding: var(--spacing-lg);
+  }
+
+  .experience__quote p {
+    font-size: var(--text-lg);
+    padding: var(--spacing-lg);
+  }
+
+  .experience__quote p::before {
+    font-size: 50px;
+    top: -10px;
+    left: 15px;
+  }
+
+  /* Teaching (Преподавание) */
+  .teaching__lead {
+    font-size: var(--text-lg);
+  }
+
+  .teaching__methods {
+    flex-direction: column;
+    gap: var(--spacing-sm);
+  }
+
+  .teaching__method {
+    justify-content: center;
+  }
+
+  .teaching__image-badge {
+    position: static;
+    margin-top: var(--spacing-md);
+    display: inline-flex;
+  }
+
+  /* Tools Bridge */
+  .tools-bridge__diagram {
+    flex-direction: column;
+    gap: var(--spacing-md);
+  }
+
+  .tools-bridge__arrow {
+    transform: rotate(90deg);
+    width: 60px;
+  }
+
+  .tools-bridge__node {
+    min-width: 160px;
+    padding: var(--spacing-lg);
+  }
+
+  /* Audience (Для кого я работаю) */
+  .audience__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .audience-card {
+    padding: var(--spacing-lg);
   }
 }
 

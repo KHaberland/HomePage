@@ -18,7 +18,9 @@
       // Элементы для анимации
       this.animatedElements = document.querySelectorAll(
         '.section__header, .about__inner, .calculator-card, .book__inner, ' +
-        '.video-card, .blog-card, .testimonial-card, .contact__inner'
+        '.video-card, .blog-card, .testimonial-card, .contact__inner, ' +
+        '.experience-card, .experience__quote, .teaching__inner, ' +
+        '.tools-bridge__inner, .audience-card'
       );
 
       if (!this.animatedElements.length) return;

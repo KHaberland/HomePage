@@ -1237,6 +1237,459 @@ p {
   color: var(--color-secondary);
 }
 
+/* ===== EXPERIENCE SECTION (Практический опыт) ===== */
+
+.experience {
+  background: var(--color-light);
+}
+
+.experience__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--spacing-xl);
+}
+
+.experience-card {
+  background: var(--color-white);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-xl);
+  box-shadow: var(--shadow-card);
+  text-align: center;
+  transition: all var(--transition-base);
+  position: relative;
+  overflow: hidden;
+}
+
+.experience-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--gradient-accent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--transition-base);
+}
+
+.experience-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-card-hover);
+}
+
+.experience-card:hover::before {
+  transform: scaleX(1);
+}
+
+.experience-card__icon {
+  width: 70px;
+  height: 70px;
+  margin: 0 auto var(--spacing-lg);
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform var(--transition-base);
+}
+
+.experience-card:hover .experience-card__icon {
+  transform: scale(1.1);
+}
+
+.experience-card__icon svg {
+  width: 35px;
+  height: 35px;
+  color: var(--color-white);
+}
+
+.experience-card__icon--tig {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.experience-card__icon--mag {
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+}
+
+.experience-card__icon--mma {
+  background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+}
+
+.experience-card__icon--oaw {
+  background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+}
+
+.experience-card__title {
+  font-size: var(--text-xl);
+  margin-bottom: var(--spacing-xs);
+}
+
+.experience-card__subtitle {
+  font-size: var(--text-sm);
+  color: var(--color-gray-600);
+  margin-bottom: var(--spacing-md);
+}
+
+.experience-card__list {
+  text-align: left;
+}
+
+.experience-card__list li {
+  position: relative;
+  padding-left: var(--spacing-lg);
+  margin-bottom: var(--spacing-sm);
+  font-size: var(--text-sm);
+  color: var(--color-gray-700);
+}
+
+.experience-card__list li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: var(--color-accent);
+  font-weight: var(--font-bold);
+}
+
+.experience__quote {
+  margin-top: var(--spacing-3xl);
+  text-align: center;
+}
+
+.experience__quote p {
+  font-size: var(--text-xl);
+  font-style: italic;
+  color: var(--color-primary);
+  max-width: 700px;
+  margin: 0 auto;
+  padding: var(--spacing-xl);
+  background: var(--color-white);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  position: relative;
+}
+
+.experience__quote p::before {
+  content: '"';
+  position: absolute;
+  top: -20px;
+  left: 30px;
+  font-size: 80px;
+  color: var(--color-accent);
+  opacity: 0.3;
+  font-family: Georgia, serif;
+  line-height: 1;
+}
+
+/* ===== TEACHING SECTION (Преподавание) ===== */
+
+.teaching {
+  background: var(--color-white);
+}
+
+.teaching__inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-4xl);
+  align-items: center;
+}
+
+.teaching__content h2 {
+  margin-bottom: var(--spacing-lg);
+}
+
+.teaching__lead {
+  font-size: var(--text-xl);
+  color: var(--color-accent);
+  margin-bottom: var(--spacing-2xl);
+  font-style: italic;
+  border-left: 4px solid var(--color-accent);
+  padding-left: var(--spacing-lg);
+}
+
+.teaching__block {
+  margin-bottom: var(--spacing-xl);
+  padding: var(--spacing-lg);
+  background: var(--color-light);
+  border-radius: var(--radius-md);
+}
+
+.teaching__block h3 {
+  font-size: var(--text-lg);
+  margin-bottom: var(--spacing-sm);
+  color: var(--color-primary);
+}
+
+.teaching__block p {
+  color: var(--color-gray-600);
+  margin: 0;
+}
+
+.teaching__disciplines,
+.teaching__practical {
+  margin-bottom: var(--spacing-xl);
+}
+
+.teaching__disciplines h4,
+.teaching__practical h4 {
+  font-size: var(--text-base);
+  color: var(--color-gray-700);
+  margin-bottom: var(--spacing-md);
+  font-weight: var(--font-semibold);
+}
+
+.teaching__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-sm);
+}
+
+.teaching__tag {
+  display: inline-block;
+  padding: var(--spacing-sm) var(--spacing-md);
+  background: rgba(26, 54, 93, 0.1);
+  color: var(--color-primary);
+  font-size: var(--text-sm);
+  border-radius: var(--radius-full);
+  font-weight: var(--font-medium);
+}
+
+.teaching__methods {
+  display: flex;
+  gap: var(--spacing-lg);
+  flex-wrap: wrap;
+}
+
+.teaching__method {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-md) var(--spacing-lg);
+  background: var(--gradient-primary);
+  color: var(--color-white);
+  border-radius: var(--radius-md);
+  font-weight: var(--font-medium);
+  transition: transform var(--transition-base);
+}
+
+.teaching__method:hover {
+  transform: translateY(-2px);
+}
+
+.teaching__method-icon {
+  font-size: var(--text-lg);
+}
+
+.teaching__image {
+  position: relative;
+}
+
+.teaching__image img {
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-xl);
+  width: 100%;
+  height: auto;
+}
+
+.teaching__image-badge {
+  position: absolute;
+  bottom: -15px;
+  left: -15px;
+  background: var(--color-accent);
+  color: var(--color-white);
+  padding: var(--spacing-md) var(--spacing-lg);
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  box-shadow: var(--shadow-lg);
+}
+
+.teaching__image-badge-icon {
+  width: 24px;
+  height: 24px;
+}
+
+/* ===== TOOLS BRIDGE SECTION (От практики к инструментам) ===== */
+
+.tools-bridge {
+  background: var(--gradient-primary);
+  color: var(--color-white);
+  position: relative;
+  overflow: hidden;
+}
+
+.tools-bridge::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 10% 50%, rgba(246, 173, 85, 0.2) 0%, transparent 40%),
+    radial-gradient(circle at 90% 50%, rgba(237, 137, 54, 0.15) 0%, transparent 40%);
+  pointer-events: none;
+}
+
+.tools-bridge__inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-4xl);
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+.tools-bridge__content h2 {
+  color: var(--color-white);
+  margin-bottom: var(--spacing-lg);
+}
+
+.tools-bridge__text {
+  font-size: var(--text-lg);
+  opacity: 0.95;
+  margin-bottom: var(--spacing-xl);
+  line-height: var(--leading-relaxed);
+}
+
+.tools-bridge__text strong {
+  color: var(--color-secondary);
+}
+
+.tools-bridge__badges {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+.tools-bridge__badge {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  padding: var(--spacing-md) var(--spacing-lg);
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.tools-bridge__badge svg {
+  width: 24px;
+  height: 24px;
+  color: var(--color-secondary);
+  flex-shrink: 0;
+}
+
+.tools-bridge__visual {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.tools-bridge__diagram {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-lg);
+}
+
+.tools-bridge__node {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-xl);
+  border-radius: var(--radius-lg);
+  min-width: 140px;
+}
+
+.tools-bridge__node--practice {
+  background: rgba(255, 255, 255, 0.15);
+  border: 2px solid var(--color-secondary);
+}
+
+.tools-bridge__node--tools {
+  background: var(--color-secondary);
+  color: var(--color-dark);
+}
+
+.tools-bridge__node-icon {
+  font-size: 2.5rem;
+}
+
+.tools-bridge__node-label {
+  font-weight: var(--font-semibold);
+  font-size: var(--text-sm);
+}
+
+.tools-bridge__arrow {
+  width: 80px;
+}
+
+.tools-bridge__arrow svg {
+  width: 100%;
+  height: auto;
+  color: var(--color-secondary);
+}
+
+/* ===== AUDIENCE SECTION (Для кого я работаю) ===== */
+
+.audience {
+  background: var(--color-light);
+}
+
+.audience__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--spacing-xl);
+}
+
+.audience-card {
+  background: var(--color-white);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-xl);
+  text-align: center;
+  box-shadow: var(--shadow-card);
+  transition: all var(--transition-base);
+}
+
+.audience-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-card-hover);
+}
+
+.audience-card__icon {
+  width: 70px;
+  height: 70px;
+  margin: 0 auto var(--spacing-lg);
+  background: var(--gradient-primary);
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform var(--transition-base);
+}
+
+.audience-card:hover .audience-card__icon {
+  transform: scale(1.1) rotate(5deg);
+}
+
+.audience-card__icon svg {
+  width: 30px;
+  height: 30px;
+  color: var(--color-white);
+}
+
+.audience-card__title {
+  font-size: var(--text-lg);
+  margin-bottom: var(--spacing-sm);
+}
+
+.audience-card__description {
+  font-size: var(--text-sm);
+  color: var(--color-gray-600);
+  margin: 0;
+}
+
 /* ===== АНИМАЦИИ ===== */
 
 @keyframes fadeInUp {
