@@ -1,0 +1,68 @@
+# ===================================
+# .htaccess для Apache сервера
+# ===================================
+
+# Включить HTTPS редирект
+# Раскомментируйте строки ниже после настройки SSL сертификата
+# RewriteEngine On
+# RewriteCond %{HTTPS} off
+# RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# Редирект www на без www
+# RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
+# RewriteRule ^(.*)$ https://%1/$1 [R=301,L]
+
+# Кэширование статических файлов
+<IfModule mod_expires.c>
+  ExpiresActive On
+  
+  # Изображения
+  ExpiresByType image/jpeg "access plus 1 year"
+  ExpiresByType image/png "access plus 1 year"
+  ExpiresByType image/gif "access plus 1 year"
+  ExpiresByType image/webp "access plus 1 year"
+  ExpiresByType image/svg+xml "access plus 1 year"
+  ExpiresByType image/x-icon "access plus 1 year"
+  
+  # CSS и JavaScript
+  ExpiresByType text/css "access plus 1 month"
+  ExpiresByType application/javascript "access plus 1 month"
+  ExpiresByType text/javascript "access plus 1 month"
+  
+  # Шрифты
+  ExpiresByType font/woff2 "access plus 1 year"
+  ExpiresByType font/woff "access plus 1 year"
+  ExpiresByType font/ttf "access plus 1 year"
+  
+  # HTML
+  ExpiresByType text/html "access plus 1 hour"
+</IfModule>
+
+# Сжатие GZIP
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html
+  AddOutputFilterByType DEFLATE text/css
+  AddOutputFilterByType DEFLATE text/javascript
+  AddOutputFilterByType DEFLATE application/javascript
+  AddOutputFilterByType DEFLATE application/json
+  AddOutputFilterByType DEFLATE image/svg+xml
+</IfModule>
+
+# Безопасность
+<IfModule mod_headers.c>
+  # Защита от clickjacking
+  Header always set X-Frame-Options "SAMEORIGIN"
+  
+  # Защита от XSS
+  Header always set X-XSS-Protection "1; mode=block"
+  
+  # Защита от MIME type sniffing
+  Header always set X-Content-Type-Options "nosniff"
+  
+  # Referrer Policy
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+</IfModule>
+
+# Скрыть версию сервера
+ServerSignature Off
+

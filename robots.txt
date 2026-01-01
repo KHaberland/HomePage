@@ -1,0 +1,11 @@
+# Robots.txt для olegsuvorov.com
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://olegsuvorov.com/sitemap.xml
+
+# Не индексировать служебные файлы
+Disallow: /manifest.json
+

@@ -3,19 +3,39 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Олег Суворов — международный инженер-сварщик (IWE), автор книги по MAG сварке, разработчик профессиональных калькуляторов для сварщиков и инженеров.">
-  <meta name="keywords" content="IWE, инженер-сварщик, MAG сварка, калькулятор сварки, книга по сварке, Олег Суворов">
-  <meta name="author" content="Олег Суворов">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   
-  <!-- Open Graph / Social -->
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Олег Суворов — международный инженер-сварщик (IWE), автор книги по MAG сварке, разработчик профессиональных калькуляторов для сварщиков и инженеров.">
+  <meta name="keywords" content="IWE, инженер-сварщик, MAG сварка, калькулятор сварки, книга по сварке, Олег Суворов, MIG сварка, защитный газ">
+  <meta name="author" content="Олег Суворов">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#1a365d">
+  <link rel="canonical" href="https://olegsuvorov.com/">
+  
+  <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website">
+  <meta property="og:url" content="https://olegsuvorov.com/">
+  <meta property="og:site_name" content="Oleg Suvorov IWE">
   <meta property="og:title" content="Олег Суворов — International Welding Engineer">
-  <meta property="og:description" content="Профессиональные калькуляторы, книга по MAG сварке и экспертные материалы">
-  <meta property="og:image" content="images/hero/og-image.jpg">
+  <meta property="og:description" content="Профессиональные калькуляторы, книга по MAG сварке и экспертные материалы для инженеров-сварщиков">
+  <meta property="og:image" content="https://olegsuvorov.com/images/hero/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:locale" content="ru_RU">
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Олег Суворов — International Welding Engineer">
+  <meta name="twitter:description" content="Профессиональные калькуляторы, книга по MAG сварке и экспертные материалы">
+  <meta name="twitter:image" content="https://olegsuvorov.com/images/hero/og-image.jpg">
   
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="images/icons/favicon.svg">
-  <link rel="apple-touch-icon" href="images/icons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="images/icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="images/icons/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="images/icons/apple-touch-icon.png">
+  <link rel="manifest" href="manifest.json">
   
   <!-- CSS -->
   <link rel="stylesheet" href="css/variables.css">
@@ -26,9 +46,28 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   
+  <!-- Structured Data / JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Олег Суворов",
+    "jobTitle": "International Welding Engineer (IWE)",
+    "description": "Автор книги по MAG сварке, разработчик профессиональных калькуляторов для сварщиков и инженеров",
+    "url": "https://olegsuvorov.com",
+    "sameAs": [
+      "https://linkedin.com/in/olegsuvorov",
+      "https://youtube.com/@olegsuvorov",
+      "https://github.com/olegsuvorov"
+    ]
+  }
+  </script>
+  
   <title>Олег Суворов — International Welding Engineer (IWE)</title>
 </head>
 <body>
+  <!-- Skip Link для доступности -->
+  <a href="#main-content" class="visually-hidden" style="position:absolute;top:0;left:0;padding:1rem;background:#1a365d;color:#fff;z-index:9999;">Перейти к содержимому</a>
   <!-- ===== HEADER ===== -->
   <header class="header" id="header">
     <div class="container">
@@ -73,6 +112,7 @@
   </header>
 
   <!-- ===== HERO SECTION ===== -->
+  <main id="main-content">
   <section class="hero" id="hero">
     <div class="container">
       <div class="hero__inner">
@@ -134,6 +174,7 @@
         <div class="hero__image">
           <div class="hero__image-wrapper">
             <img src="images/hero/hero-photo.jpg" alt="Олег Суворов — инженер-сварщик за работой" 
+                 width="600" height="700"
                  onerror="this.src='https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=600&h=700&fit=crop'">
           </div>
         </div>
@@ -152,6 +193,7 @@
         <!-- Изображение -->
         <div class="about__image">
           <img src="images/hero/about-photo.jpg" alt="Олег Суворов на производстве" class="about__image-main"
+               width="600" height="500" loading="lazy"
                onerror="this.src='https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=600&h=500&fit=crop'">
           <div class="about__image-badge">
             <div class="about__image-badge-value">IWE</div>
@@ -353,6 +395,7 @@
         <!-- Обложка книги -->
         <div class="book__image">
           <img src="images/book/book-cover.jpg" alt="Книга: Практическое руководство по MAG сварке" class="book__cover"
+               width="400" height="550" loading="lazy"
                onerror="this.src='https://via.placeholder.com/400x550/1a365d/ffffff?text=MAG+Welding+Guide'">
         </div>
         
@@ -432,6 +475,7 @@
         <article class="video-card">
           <div class="video-card__thumbnail">
             <img src="images/video/video-1.jpg" alt="Как пользоваться калькулятором газа"
+                 width="400" height="225" loading="lazy"
                  onerror="this.src='https://images.unsplash.com/photo-1565043589221-1a6fd9ae45c7?w=400&h=225&fit=crop'">
             <button class="video-card__play" aria-label="Воспроизвести видео">
               <svg viewBox="0 0 24 24" fill="currentColor">
@@ -451,6 +495,7 @@
         <article class="video-card">
           <div class="video-card__thumbnail">
             <img src="images/video/video-2.jpg" alt="Настройка режимов MAG сварки"
+                 width="400" height="225" loading="lazy"
                  onerror="this.src='https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=400&h=225&fit=crop'">
             <button class="video-card__play" aria-label="Воспроизвести видео">
               <svg viewBox="0 0 24 24" fill="currentColor">
@@ -470,6 +515,7 @@
         <article class="video-card">
           <div class="video-card__thumbnail">
             <img src="images/video/video-3.jpg" alt="Типичные дефекты и их устранение"
+                 width="400" height="225" loading="lazy"
                  onerror="this.src='https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=400&h=225&fit=crop'">
             <button class="video-card__play" aria-label="Воспроизвести видео">
               <svg viewBox="0 0 24 24" fill="currentColor">
@@ -512,6 +558,7 @@
         <article class="blog-card">
           <div class="blog-card__image">
             <img src="images/blog/article-1.jpg" alt="Как выбрать защитный газ для MAG сварки"
+                 width="400" height="250" loading="lazy"
                  onerror="this.src='https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=400&h=250&fit=crop'">
           </div>
           <div class="blog-card__content">
@@ -532,6 +579,7 @@
         <article class="blog-card">
           <div class="blog-card__image">
             <img src="images/blog/article-2.jpg" alt="Оптимизация расхода газа на производстве"
+                 width="400" height="250" loading="lazy"
                  onerror="this.src='https://images.unsplash.com/photo-1565043589221-1a6fd9ae45c7?w=400&h=250&fit=crop'">
           </div>
           <div class="blog-card__content">
@@ -552,6 +600,7 @@
         <article class="blog-card">
           <div class="blog-card__image">
             <img src="images/blog/article-3.jpg" alt="5 ошибок при сварке тонкого металла"
+                 width="400" height="250" loading="lazy"
                  onerror="this.src='https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=400&h=250&fit=crop'">
           </div>
           <div class="blog-card__content">
@@ -574,7 +623,7 @@
         <h3>Получайте полезные материалы на email</h3>
         <p>Подпишитесь на рассылку и получите PDF-шпаргалку по режимам MAG сварки бесплатно</p>
         <form class="blog__newsletter-form" id="newsletter-form">
-          <input type="email" class="blog__newsletter-input" placeholder="Ваш email" required>
+          <input type="email" class="blog__newsletter-input" placeholder="Ваш email" autocomplete="email" aria-label="Email для подписки" required>
           <button type="submit" class="btn btn--primary">Подписаться</button>
         </form>
       </div>
@@ -601,6 +650,7 @@
           </p>
           <div class="testimonial-card__author">
             <img src="images/testimonials/avatar-1.jpg" alt="Иван Петров" class="testimonial-card__avatar"
+                 width="50" height="50" loading="lazy"
                  onerror="this.src='https://i.pravatar.cc/100?img=11'">
             <div>
               <div class="testimonial-card__name">Иван Петров</div>
@@ -618,6 +668,7 @@
           </p>
           <div class="testimonial-card__author">
             <img src="images/testimonials/avatar-2.jpg" alt="Сергей Кузнецов" class="testimonial-card__avatar"
+                 width="50" height="50" loading="lazy"
                  onerror="this.src='https://i.pravatar.cc/100?img=12'">
             <div>
               <div class="testimonial-card__name">Сергей Кузнецов</div>
@@ -635,6 +686,7 @@
           </p>
           <div class="testimonial-card__author">
             <img src="images/testimonials/avatar-3.jpg" alt="Анна Михайлова" class="testimonial-card__avatar"
+                 width="50" height="50" loading="lazy"
                  onerror="this.src='https://i.pravatar.cc/100?img=5'">
             <div>
               <div class="testimonial-card__name">Анна Михайлова</div>
@@ -704,12 +756,12 @@
         <form class="contact__form" id="contact-form">
           <div class="form__group">
             <label class="form__label" for="name">Ваше имя</label>
-            <input type="text" class="form__input" id="name" name="name" placeholder="Иван Иванов" required>
+            <input type="text" class="form__input" id="name" name="name" placeholder="Иван Иванов" autocomplete="name" required>
           </div>
           
           <div class="form__group">
             <label class="form__label" for="email">Email</label>
-            <input type="email" class="form__input" id="email" name="email" placeholder="ivan@example.com" required>
+            <input type="email" class="form__input" id="email" name="email" placeholder="ivan@example.com" autocomplete="email" required>
           </div>
           
           <div class="form__group">
@@ -730,6 +782,8 @@
     </div>
   </section>
 
+  </main>
+  
   <!-- ===== FOOTER ===== -->
   <footer class="footer">
     <div class="container">
@@ -793,6 +847,28 @@
   <script src="js/menu.js"></script>
   <script src="js/main.js"></script>
   <script src="js/forms.js"></script>
+  
+  <!-- Google Analytics — замените GA_MEASUREMENT_ID на ваш идентификатор -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'GA_MEASUREMENT_ID');
+  </script>
+  
+  <!-- Yandex.Metrika — замените XXXXXXXX на ваш номер счётчика -->
+  <!--
+  <script type="text/javascript">
+    (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+    m[i].l=1*new Date();
+    for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+    k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+    (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+    ym(XXXXXXXX, "init", { clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:true });
+  </script>
+  <noscript><div><img src="https://mc.yandex.ru/watch/XXXXXXXX" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+  -->
 </body>
 </html>
 
