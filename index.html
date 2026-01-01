@@ -111,27 +111,52 @@
     </div>
   </header>
 
-  <!-- ===== HERO SECTION ===== -->
+  <!-- ===== HERO SECTION с ПАРАЛЛАКС ===== -->
   <main id="main-content">
-  <section class="hero" id="hero">
+  <section class="hero parallax-container" id="hero">
+    <!-- Параллакс фон с видео/изображением сварки -->
+    <div class="hero__parallax-bg parallax-layer" data-parallax-speed="0.3">
+      <!-- Видео фон (основной) -->
+      <video class="hero__video" autoplay muted loop playsinline poster="images/hero/welding-poster.jpg">
+        <source src="images/hero/welding-bg.mp4" type="video/mp4">
+      </video>
+      <!-- Fallback изображение -->
+      <img src="images/hero/welding-bg.jpg" alt="" class="hero__bg-image" aria-hidden="true"
+           onerror="this.src='https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=1920&q=80'">
+      <!-- Затемнение поверх фона -->
+      <div class="hero__overlay"></div>
+    </div>
+    
     <div class="container">
       <div class="hero__inner">
-        <!-- Контент -->
+        <!-- Контент (статичный) -->
         <div class="hero__content">
           <div class="hero__badge">
             <svg class="hero__badge-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/>
             </svg>
-            <span>Практические решения для инженеров и сварщиков</span>
+            <span>International Welding Engineer</span>
           </div>
           
           <h1 class="hero__title">
             Олег <span class="hero__title-accent">Суворов</span>
           </h1>
           
+          <div class="hero__tags">
+            <span class="hero__tag">IWE</span>
+            <span class="hero__tag-separator">•</span>
+            <span class="hero__tag">TIG</span>
+            <span class="hero__tag-separator">•</span>
+            <span class="hero__tag">MAG</span>
+            <span class="hero__tag-separator">•</span>
+            <span class="hero__tag">MMA</span>
+            <span class="hero__tag-separator">•</span>
+            <span class="hero__tag">OAW</span>
+          </div>
+          
           <p class="hero__description">
-            IWE, автор книги по MAG сварке, разработчик профессиональных калькуляторов. 
-            Помогаю инженерам и сварщикам оптимизировать рабочие процессы и повышать качество работы.
+            Автор книги по MAG сварке, разработчик профессиональных калькуляторов. 
+            Помогаю инженерам и сварщикам оптимизировать рабочие процессы.
           </p>
           
           <div class="hero__actions">
@@ -184,6 +209,30 @@
     <!-- Декоративные элементы -->
     <div class="hero__decoration hero__decoration--1"></div>
     <div class="hero__decoration hero__decoration--2"></div>
+    
+    <!-- Индикатор скролла -->
+    <div class="hero__scroll-indicator">
+      <span>Прокрутите вниз</span>
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M12 5v14M19 12l-7 7-7-7"/>
+      </svg>
+    </div>
+  </section>
+
+  <!-- ===== PARALLAX DIVIDER: Hero → О себе ===== -->
+  <section class="parallax-divider parallax-divider--1" id="parallax-intro">
+    <div class="parallax-divider__bg parallax-layer" data-parallax-speed="0.2">
+      <img src="images/hero/metal-texture.jpg" alt="" aria-hidden="true"
+           onerror="this.src='https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1920&q=80'">
+    </div>
+    <div class="parallax-divider__overlay"></div>
+    <div class="parallax-divider__content">
+      <p class="parallax-divider__text">
+        <span>Практика.</span>
+        <span>Инженерия.</span>
+        <span>Цифровые инструменты.</span>
+      </p>
+    </div>
   </section>
 
   <!-- ===== ABOUT SECTION ===== -->
@@ -247,8 +296,15 @@
     </div>
   </section>
 
-  <!-- ===== PRACTICAL EXPERIENCE SECTION ===== -->
-  <section class="experience section section--alt" id="experience">
+  <!-- ===== PRACTICAL EXPERIENCE SECTION с ПАРАЛЛАКС ===== -->
+  <section class="experience section parallax-container" id="experience">
+    <!-- Параллакс фон -->
+    <div class="experience__parallax-bg parallax-layer" data-parallax-speed="0.15">
+      <img src="images/hero/welding-process.jpg" alt="" aria-hidden="true"
+           onerror="this.src='https://images.unsplash.com/photo-1565043589221-1a6fd9ae45c7?w=1920&q=80'">
+    </div>
+    <div class="experience__overlay"></div>
+    
     <div class="container">
       <div class="section__header">
         <h2 class="section__title">Практический опыт сварки и резки металлов</h2>
@@ -398,6 +454,25 @@
             <span>Преподаватель</span>
           </div>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PARALLAX DIVIDER: Опыт → Калькуляторы ===== -->
+  <section class="parallax-divider parallax-divider--2" id="parallax-bridge">
+    <div class="parallax-divider__bg parallax-layer" data-parallax-speed="0.1">
+      <img src="images/hero/weld-closeup.jpg" alt="" aria-hidden="true"
+           onerror="this.src='https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1920&q=80'">
+    </div>
+    <div class="parallax-divider__overlay parallax-divider__overlay--dark"></div>
+    <div class="parallax-divider__content">
+      <p class="parallax-divider__text parallax-divider__text--single">
+        От реального шва — к точному расчёту
+      </p>
+      <div class="parallax-divider__arrow">
+        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M12 5v14M19 12l-7 7-7-7"/>
+        </svg>
       </div>
     </div>
   </section>
@@ -977,6 +1052,23 @@
           </p>
         </article>
       </div>
+    </div>
+  </section>
+
+  <!-- ===== PARALLAX DIVIDER: Финальный акцент перед контактами ===== -->
+  <section class="parallax-divider parallax-divider--3" id="parallax-final">
+    <div class="parallax-divider__bg parallax-layer" data-parallax-speed="0.1">
+      <img src="images/hero/workshop.jpg" alt="" aria-hidden="true"
+           onerror="this.src='https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=1920&q=80'">
+    </div>
+    <div class="parallax-divider__overlay parallax-divider__overlay--gradient"></div>
+    <div class="parallax-divider__content">
+      <p class="parallax-divider__text parallax-divider__text--single">
+        Готов поделиться опытом и решениями
+      </p>
+      <a href="#contact" class="btn btn--primary btn--lg parallax-divider__cta">
+        Связаться со мной
+      </a>
     </div>
   </section>
 

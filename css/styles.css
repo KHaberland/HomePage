@@ -337,16 +337,90 @@ p {
   transform: rotate(-45deg) translate(6px, -6px);
 }
 
-/* ===== HERO SECTION ===== */
+/* ===== PARALLAX ОБЩИЕ СТИЛИ ===== */
+
+.parallax-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.parallax-layer {
+  position: absolute;
+  top: -20%;
+  left: 0;
+  right: 0;
+  bottom: -20%;
+  will-change: transform;
+  pointer-events: none;
+}
+
+.parallax-layer img,
+.parallax-layer video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ===== HERO SECTION с ПАРАЛЛАКС ===== */
 
 .hero {
   position: relative;
   min-height: 100vh;
   display: flex;
   align-items: center;
-  background: var(--gradient-hero);
   overflow: hidden;
   padding-top: 80px;
+  background: var(--color-primary-dark);
+}
+
+.hero__parallax-bg {
+  z-index: 0;
+}
+
+.hero__video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: cover;
+}
+
+.hero__bg-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Показываем изображение только если видео не загрузилось */
+.hero__video + .hero__bg-image {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.hero__video[data-failed="true"] + .hero__bg-image {
+  opacity: 1;
+}
+
+.hero__overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(26, 54, 93, 0.92) 0%,
+    rgba(44, 82, 130, 0.85) 50%,
+    rgba(26, 54, 93, 0.9) 100%
+  );
+  z-index: 1;
 }
 
 .hero::before {
@@ -360,6 +434,7 @@ p {
     radial-gradient(circle at 20% 80%, rgba(246, 173, 85, 0.15) 0%, transparent 50%),
     radial-gradient(circle at 80% 20%, rgba(237, 137, 54, 0.1) 0%, transparent 50%);
   pointer-events: none;
+  z-index: 2;
 }
 
 .hero__inner {
@@ -368,7 +443,7 @@ p {
   gap: var(--spacing-3xl);
   align-items: center;
   position: relative;
-  z-index: 1;
+  z-index: 5;
 }
 
 .hero__content {
@@ -404,6 +479,68 @@ p {
 
 .hero__title-accent {
   color: var(--color-secondary);
+}
+
+/* Hero теги TIG/MAG/MMA/OAW */
+.hero__tags {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  margin-bottom: var(--spacing-lg);
+  flex-wrap: wrap;
+}
+
+.hero__tag {
+  font-family: var(--font-heading);
+  font-size: var(--text-lg);
+  font-weight: var(--font-bold);
+  color: var(--color-secondary);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.hero__tag-separator {
+  color: rgba(255, 255, 255, 0.4);
+  font-size: var(--text-sm);
+}
+
+/* Индикатор скролла */
+.hero__scroll-indicator {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-sm);
+  color: rgba(255, 255, 255, 0.7);
+  font-size: var(--text-sm);
+  animation: bounce 2s infinite;
+  z-index: 10;
+  cursor: pointer;
+  transition: opacity var(--transition-base);
+}
+
+.hero__scroll-indicator:hover {
+  opacity: 1;
+  color: var(--color-secondary);
+}
+
+.hero__scroll-indicator svg {
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-10px);
+  }
+  60% {
+    transform: translateY(-5px);
+  }
 }
 
 .hero__description {
@@ -495,6 +632,133 @@ p {
   height: 200px;
   border: 2px solid var(--color-secondary);
   transform: rotate(45deg);
+}
+
+/* ===== PARALLAX DIVIDERS ===== */
+
+.parallax-divider {
+  position: relative;
+  min-height: 35vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.parallax-divider__bg {
+  position: absolute;
+  top: -30%;
+  left: 0;
+  right: 0;
+  bottom: -30%;
+  z-index: 0;
+}
+
+.parallax-divider__bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(30%);
+}
+
+.parallax-divider__overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(26, 54, 93, 0.7) 0%,
+    rgba(26, 54, 93, 0.85) 100%
+  );
+  z-index: 1;
+}
+
+.parallax-divider__overlay--dark {
+  background: linear-gradient(
+    180deg,
+    rgba(15, 36, 66, 0.8) 0%,
+    rgba(26, 54, 93, 0.9) 100%
+  );
+}
+
+.parallax-divider__overlay--gradient {
+  background: linear-gradient(
+    180deg,
+    rgba(26, 54, 93, 0.6) 0%,
+    rgba(45, 55, 72, 0.95) 100%
+  );
+}
+
+.parallax-divider__content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: var(--spacing-2xl);
+}
+
+.parallax-divider__text {
+  font-family: var(--font-heading);
+  font-size: var(--text-3xl);
+  font-weight: var(--font-bold);
+  color: var(--color-white);
+  line-height: 1.4;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+.parallax-divider__text span {
+  display: block;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.6s ease forwards;
+}
+
+.parallax-divider__text span:nth-child(1) { animation-delay: 0.1s; }
+.parallax-divider__text span:nth-child(2) { animation-delay: 0.3s; }
+.parallax-divider__text span:nth-child(3) { animation-delay: 0.5s; }
+
+.parallax-divider__text--single {
+  font-size: var(--text-4xl);
+  opacity: 1;
+  transform: none;
+  animation: none;
+  text-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+}
+
+.parallax-divider__arrow {
+  margin-top: var(--spacing-xl);
+  color: var(--color-secondary);
+  animation: bounce 2s infinite;
+}
+
+.parallax-divider__cta {
+  margin-top: var(--spacing-xl);
+}
+
+/* Первый разделитель — после Hero */
+.parallax-divider--1 {
+  min-height: 30vh;
+}
+
+.parallax-divider--1 .parallax-divider__text span {
+  color: var(--color-white);
+}
+
+.parallax-divider--1 .parallax-divider__text span:nth-child(1) {
+  color: var(--color-secondary);
+}
+
+/* Второй разделитель — перед калькуляторами */
+.parallax-divider--2 {
+  min-height: 25vh;
+}
+
+/* Третий разделитель — перед контактами */
+.parallax-divider--3 {
+  min-height: 40vh;
 }
 
 /* ===== ABOUT SECTION ===== */
@@ -1237,10 +1501,47 @@ p {
   color: var(--color-secondary);
 }
 
-/* ===== EXPERIENCE SECTION (Практический опыт) ===== */
+/* ===== EXPERIENCE SECTION (Практический опыт) с ПАРАЛЛАКС ===== */
 
 .experience {
+  position: relative;
   background: var(--color-light);
+}
+
+.experience__parallax-bg {
+  position: absolute;
+  top: -20%;
+  left: 0;
+  right: 0;
+  bottom: -20%;
+  z-index: 0;
+}
+
+.experience__parallax-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(50%) brightness(0.8);
+}
+
+.experience__overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(247, 250, 252, 0.95) 0%,
+    rgba(247, 250, 252, 0.92) 50%,
+    rgba(247, 250, 252, 0.95) 100%
+  );
+  z-index: 1;
+}
+
+.experience .container {
+  position: relative;
+  z-index: 2;
 }
 
 .experience__grid {
