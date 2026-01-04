@@ -216,16 +216,19 @@
   /* === ОТКЛЮЧЕНИЕ ПАРАЛЛАКСА НА МОБИЛЬНЫХ === */
   
   .parallax-layer {
-    position: absolute;
-    top: 0 !important;
-    bottom: 0 !important;
     transform: none !important;
   }
-
-  /* Скрываем декоративные элементы параллакса на мобильных */
-  .hero__particles,
-  .hero__lines {
-    display: none !important;
+  
+  /* Фон не фиксированный на мобильных */
+  .hero__parallax-bg--fixed {
+    position: absolute !important;
+    height: 100% !important;
+  }
+  
+  /* Контент и изображение без параллакса на мобильных */
+  .hero__content.parallax-layer,
+  .hero__image.parallax-layer {
+    transform: none !important;
   }
 
   .hero__scroll-indicator {

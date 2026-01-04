@@ -68,6 +68,9 @@ input, textarea, select {
 
 .section {
   padding: var(--spacing-4xl) 0;
+  position: relative;
+  z-index: 2; /* Поверх фиксированного фона Hero */
+  background-color: var(--color-white);
 }
 
 .section--alt {
@@ -354,10 +357,10 @@ p {
   pointer-events: none;
 }
 
-/* Усиленный параллакс для Hero */
+/* Усиленный параллакс для Hero — большой запас для движения */
 .hero .parallax-layer {
-  top: -50%;
-  bottom: -50%;
+  top: -80%;
+  bottom: -80%;
 }
 
 .parallax-layer img,
@@ -383,7 +386,19 @@ p {
   z-index: 0;
 }
 
-.hero__video {
+/* Фиксированный фон — остаётся неподвижным при скролле */
+.hero__parallax-bg--fixed {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.hero__parallax-bg--fixed .hero__video,
+.hero__parallax-bg--fixed .hero__bg-image {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -392,6 +407,19 @@ p {
   min-height: 100%;
   width: auto;
   height: auto;
+  object-fit: cover;
+}
+
+.hero__parallax-bg--fixed .hero__overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* Базовые стили видео переопределяются в .hero__parallax-bg--fixed */
+.hero__video {
   object-fit: cover;
 }
 
@@ -427,9 +455,9 @@ p {
   bottom: 0;
   background: linear-gradient(
     135deg,
-    rgba(26, 54, 93, 0.92) 0%,
-    rgba(44, 82, 130, 0.85) 50%,
-    rgba(26, 54, 93, 0.9) 100%
+    rgba(26, 54, 93, 0.65) 0%,
+    rgba(44, 82, 130, 0.55) 50%,
+    rgba(26, 54, 93, 0.6) 100%
   );
 }
 
@@ -440,22 +468,22 @@ p {
 
 .hero__spark {
   position: absolute;
-  width: 4px;
-  height: 4px;
+  width: 8px;
+  height: 8px;
   background: var(--color-secondary);
   border-radius: 50%;
   box-shadow: 
-    0 0 10px var(--color-secondary),
-    0 0 20px var(--color-secondary),
-    0 0 30px rgba(237, 137, 54, 0.5);
+    0 0 15px var(--color-secondary),
+    0 0 30px var(--color-secondary),
+    0 0 45px rgba(237, 137, 54, 0.6);
   animation: sparkle 3s ease-in-out infinite;
 }
 
-.hero__spark--1 { top: 20%; left: 15%; animation-delay: 0s; }
-.hero__spark--2 { top: 35%; left: 75%; animation-delay: 0.5s; width: 6px; height: 6px; }
-.hero__spark--3 { top: 60%; left: 25%; animation-delay: 1s; }
-.hero__spark--4 { top: 45%; left: 85%; animation-delay: 1.5s; width: 3px; height: 3px; }
-.hero__spark--5 { top: 75%; left: 60%; animation-delay: 2s; width: 5px; height: 5px; }
+.hero__spark--1 { top: 15%; left: 12%; animation-delay: 0s; width: 10px; height: 10px; }
+.hero__spark--2 { top: 30%; left: 78%; animation-delay: 0.5s; width: 12px; height: 12px; }
+.hero__spark--3 { top: 55%; left: 20%; animation-delay: 1s; width: 8px; height: 8px; }
+.hero__spark--4 { top: 40%; left: 88%; animation-delay: 1.5s; width: 6px; height: 6px; }
+.hero__spark--5 { top: 70%; left: 65%; animation-delay: 2s; width: 10px; height: 10px; }
 
 .hero__glow {
   position: absolute;
@@ -471,18 +499,18 @@ p {
 }
 
 .hero__glow--1 {
-  width: 300px;
-  height: 300px;
-  top: 10%;
-  left: 10%;
+  width: 400px;
+  height: 400px;
+  top: 5%;
+  left: 5%;
   animation-delay: 0s;
 }
 
 .hero__glow--2 {
-  width: 200px;
-  height: 200px;
-  top: 50%;
-  right: 15%;
+  width: 350px;
+  height: 350px;
+  top: 40%;
+  right: 10%;
   animation-delay: 2s;
 }
 
@@ -493,35 +521,44 @@ p {
 
 .hero__line {
   position: absolute;
-  color: rgba(237, 137, 54, 0.3);
-  opacity: 0.6;
+  color: rgba(237, 137, 54, 0.5);
+  opacity: 0.8;
 }
 
 .hero__line--1 {
-  width: 200px;
-  top: 25%;
-  left: 5%;
-  transform: rotate(-15deg);
+  width: 300px;
+  height: 3px;
+  top: 20%;
+  left: 3%;
+  transform: rotate(-12deg);
 }
 
 .hero__line--2 {
-  width: 150px;
-  top: 55%;
-  right: 10%;
-  transform: rotate(20deg);
+  width: 250px;
+  height: 3px;
+  top: 50%;
+  right: 5%;
+  transform: rotate(18deg);
 }
 
 .hero__line--3 {
-  width: 100px;
-  bottom: 20%;
-  left: 20%;
-  transform: rotate(-5deg);
+  width: 180px;
+  height: 3px;
+  bottom: 25%;
+  left: 15%;
+  transform: rotate(-8deg);
 }
 
-/* Контейнер контента — поверх всех слоёв */
+/* Контейнер контента — поверх фиксированного фона */
 .hero__container {
   position: relative;
   z-index: 10;
+}
+
+/* Hero секция должна иметь свой контекст наложения */
+.hero {
+  position: relative;
+  z-index: 1;
 }
 
 /* Анимации для декоративных элементов */
@@ -572,6 +609,18 @@ p {
 
 .hero__content {
   color: var(--color-white);
+  position: relative;
+  will-change: transform;
+  pointer-events: auto;
+}
+
+/* Параллакс для контента hero */
+.hero__content.parallax-layer {
+  position: relative;
+  top: auto;
+  left: auto;
+  right: auto;
+  bottom: auto;
 }
 
 .hero__badge {
@@ -706,6 +755,17 @@ p {
 
 .hero__image {
   position: relative;
+  will-change: transform;
+  pointer-events: auto;
+}
+
+/* Параллакс для изображения hero */
+.hero__image.parallax-layer {
+  position: relative;
+  top: auto;
+  left: auto;
+  right: auto;
+  bottom: auto;
 }
 
 .hero__image-wrapper {
@@ -767,6 +827,7 @@ p {
   align-items: center;
   justify-content: center;
   overflow: hidden;
+  z-index: 2; /* Поверх фиксированного фона Hero */
 }
 
 .parallax-divider__bg {
@@ -1555,6 +1616,8 @@ p {
   background: var(--color-dark);
   color: var(--color-white);
   padding: var(--spacing-3xl) 0 var(--spacing-xl);
+  position: relative;
+  z-index: 2; /* Поверх фиксированного фона Hero */
 }
 
 .footer__inner {
