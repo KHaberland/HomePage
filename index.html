@@ -115,8 +115,8 @@
   <main id="main-content">
   <section class="hero parallax-container" id="hero">
     
-    <!-- ФИКСИРОВАННЫЙ ФОН: Видео остаётся неподвижным -->
-    <div class="hero__parallax-bg hero__parallax-bg--fixed">
+    <!-- ПАРАЛЛАКС ФОН: Видео движется на 25% при скролле -->
+    <div class="hero__parallax-bg parallax-layer" data-parallax-speed="0.25">
       <video class="hero__video" autoplay muted loop playsinline poster="images/hero/welding-poster.jpg">
         <source src="images/hero/welding-bg.mp4" type="video/mp4">
       </video>
@@ -194,8 +194,8 @@
           </div>
         </div>
         
-        <!-- Изображение с параллаксом (быстрее контента) -->
-        <div class="hero__image parallax-layer" data-parallax-speed="0.6">
+        <!-- Изображение с параллаксом (100% — быстрее контента) -->
+        <div class="hero__image parallax-layer" data-parallax-speed="1.0">
           <div class="hero__image-wrapper">
             <img src="images/hero/hero-photo.jpg" alt="Олег Суворов — инженер-сварщик за работой" 
                  width="600" height="700"
@@ -216,7 +216,7 @@
 
   <!-- ===== PARALLAX DIVIDER: Hero → О себе ===== -->
   <section class="parallax-divider parallax-divider--1" id="parallax-intro">
-    <div class="parallax-divider__bg parallax-layer" data-parallax-speed="0.2">
+    <div class="parallax-divider__bg parallax-layer" data-parallax-speed="0.5">
       <img src="images/hero/metal-texture.jpg" alt="" aria-hidden="true"
            onerror="this.src='https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1920&q=80'">
     </div>
@@ -294,7 +294,7 @@
   <!-- ===== PRACTICAL EXPERIENCE SECTION с ПАРАЛЛАКС ===== -->
   <section class="experience section parallax-container" id="experience">
     <!-- Параллакс фон -->
-    <div class="experience__parallax-bg parallax-layer" data-parallax-speed="0.15">
+    <div class="experience__parallax-bg parallax-layer" data-parallax-speed="0.5">
       <img src="images/hero/welding-process.jpg" alt="" aria-hidden="true"
            onerror="this.src='https://images.unsplash.com/photo-1565043589221-1a6fd9ae45c7?w=1920&q=80'">
     </div>
@@ -455,7 +455,7 @@
 
   <!-- ===== PARALLAX DIVIDER: Опыт → Калькуляторы ===== -->
   <section class="parallax-divider parallax-divider--2" id="parallax-bridge">
-    <div class="parallax-divider__bg parallax-layer" data-parallax-speed="0.1">
+    <div class="parallax-divider__bg parallax-layer" data-parallax-speed="0.5">
       <img src="images/hero/weld-closeup.jpg" alt="" aria-hidden="true"
            onerror="this.src='https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1920&q=80'">
     </div>
@@ -1052,7 +1052,7 @@
 
   <!-- ===== PARALLAX DIVIDER: Финальный акцент перед контактами ===== -->
   <section class="parallax-divider parallax-divider--3" id="parallax-final">
-    <div class="parallax-divider__bg parallax-layer" data-parallax-speed="0.1">
+    <div class="parallax-divider__bg parallax-layer" data-parallax-speed="0.5">
       <img src="images/hero/workshop.jpg" alt="" aria-hidden="true"
            onerror="this.src='https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=1920&q=80'">
     </div>

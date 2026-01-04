@@ -219,9 +219,9 @@
     transform: none !important;
   }
   
-  /* Фон не фиксированный на мобильных */
-  .hero__parallax-bg--fixed {
-    position: absolute !important;
+  /* Видеофон без параллакса на мобильных */
+  .hero__parallax-bg.parallax-layer {
+    top: 0 !important;
     height: 100% !important;
   }
   

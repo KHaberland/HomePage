@@ -66,23 +66,36 @@
       const viewportHeight = window.innerHeight;
 
       this.elements.forEach(element => {
-        const parent = element.closest('.parallax-container, .parallax-divider, .experience');
-        if (!parent) return;
+        // Находим родителя или используем сам элемент
+        const parent = element.closest('.parallax-container, .parallax-divider, .experience, .hero') 
+                       || element.parentElement 
+                       || element;
 
         const rect = parent.getBoundingClientRect();
-        const parentTop = rect.top + scrollY;
         
-        // Проверяем, виден ли элемент
-        if (rect.bottom < 0 || rect.top > viewportHeight) {
+        // Проверяем, виден ли элемент (с запасом)
+        if (rect.bottom < -100 || rect.top > viewportHeight + 100) {
           return; // Элемент вне видимости
         }
 
         // Получаем скорость параллакса из data-атрибута
         const speed = parseFloat(element.dataset.parallaxSpeed) || 0.2;
         
-        // Вычисляем смещение относительно центра экрана
-        const relativeScroll = scrollY - parentTop + viewportHeight / 2;
-        const translateY = relativeScroll * speed;
+        // Смещение относительно позиции окна для видимого эффекта
+        const isBackground = element.classList.contains('hero__parallax-bg') 
+                          || element.classList.contains('parallax-divider__bg')
+                          || element.classList.contains('experience__parallax-bg');
+        
+        let translateY;
+        if (isBackground) {
+          // Фон: смещение относительно верха окна (эффект глубины)
+          // rect.top — расстояние от верха viewport до родителя
+          translateY = -rect.top * speed;
+        } else {
+          // Контент: смещение относительно центра окна
+          const centerOffset = rect.top - viewportHeight / 2;
+          translateY = -centerOffset * speed;
+        }
         
         // Применяем трансформацию с GPU-ускорением
         element.style.transform = `translate3d(0, ${translateY}px, 0)`;

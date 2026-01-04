@@ -386,19 +386,21 @@ p {
   z-index: 0;
 }
 
-/* Фиксированный фон — остаётся неподвижным при скролле */
-.hero__parallax-bg--fixed {
-  position: fixed;
-  top: 0;
+/* Параллакс-фон видео — движется при скролле на 25% */
+.hero__parallax-bg.parallax-layer {
+  position: absolute;
+  top: -20%;
+  bottom: auto;
   left: 0;
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 140%;
   z-index: 0;
   overflow: hidden;
+  pointer-events: auto;
 }
 
-.hero__parallax-bg--fixed .hero__video,
-.hero__parallax-bg--fixed .hero__bg-image {
+.hero__parallax-bg .hero__video,
+.hero__parallax-bg .hero__bg-image {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -410,7 +412,7 @@ p {
   object-fit: cover;
 }
 
-.hero__parallax-bg--fixed .hero__overlay {
+.hero__parallax-bg .hero__overlay {
   position: absolute;
   top: 0;
   left: 0;
@@ -418,7 +420,7 @@ p {
   height: 100%;
 }
 
-/* Базовые стили видео переопределяются в .hero__parallax-bg--fixed */
+/* Базовые стили видео переопределяются в .hero__parallax-bg */
 .hero__video {
   object-fit: cover;
 }
