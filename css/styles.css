@@ -414,6 +414,11 @@ p {
   opacity: 1;
 }
 
+/* Слой overlay — теперь в отдельном параллакс-контейнере */
+.hero__overlay-layer {
+  z-index: 1;
+}
+
 .hero__overlay {
   position: absolute;
   top: 0;
@@ -426,7 +431,120 @@ p {
     rgba(44, 82, 130, 0.85) 50%,
     rgba(26, 54, 93, 0.9) 100%
   );
-  z-index: 1;
+}
+
+/* Слой декоративных частиц/искр */
+.hero__particles {
+  z-index: 2;
+}
+
+.hero__spark {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: var(--color-secondary);
+  border-radius: 50%;
+  box-shadow: 
+    0 0 10px var(--color-secondary),
+    0 0 20px var(--color-secondary),
+    0 0 30px rgba(237, 137, 54, 0.5);
+  animation: sparkle 3s ease-in-out infinite;
+}
+
+.hero__spark--1 { top: 20%; left: 15%; animation-delay: 0s; }
+.hero__spark--2 { top: 35%; left: 75%; animation-delay: 0.5s; width: 6px; height: 6px; }
+.hero__spark--3 { top: 60%; left: 25%; animation-delay: 1s; }
+.hero__spark--4 { top: 45%; left: 85%; animation-delay: 1.5s; width: 3px; height: 3px; }
+.hero__spark--5 { top: 75%; left: 60%; animation-delay: 2s; width: 5px; height: 5px; }
+
+.hero__glow {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(237, 137, 54, 0.3) 0%,
+    rgba(237, 137, 54, 0.1) 40%,
+    transparent 70%
+  );
+  filter: blur(20px);
+  animation: glowPulse 4s ease-in-out infinite;
+}
+
+.hero__glow--1 {
+  width: 300px;
+  height: 300px;
+  top: 10%;
+  left: 10%;
+  animation-delay: 0s;
+}
+
+.hero__glow--2 {
+  width: 200px;
+  height: 200px;
+  top: 50%;
+  right: 15%;
+  animation-delay: 2s;
+}
+
+/* Слой геометрических линий */
+.hero__lines {
+  z-index: 3;
+}
+
+.hero__line {
+  position: absolute;
+  color: rgba(237, 137, 54, 0.3);
+  opacity: 0.6;
+}
+
+.hero__line--1 {
+  width: 200px;
+  top: 25%;
+  left: 5%;
+  transform: rotate(-15deg);
+}
+
+.hero__line--2 {
+  width: 150px;
+  top: 55%;
+  right: 10%;
+  transform: rotate(20deg);
+}
+
+.hero__line--3 {
+  width: 100px;
+  bottom: 20%;
+  left: 20%;
+  transform: rotate(-5deg);
+}
+
+/* Контейнер контента — поверх всех слоёв */
+.hero__container {
+  position: relative;
+  z-index: 10;
+}
+
+/* Анимации для декоративных элементов */
+@keyframes sparkle {
+  0%, 100% {
+    opacity: 0.4;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.5);
+  }
+}
+
+@keyframes glowPulse {
+  0%, 100% {
+    opacity: 0.5;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.1);
+  }
 }
 
 .hero::before {

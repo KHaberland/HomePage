@@ -222,6 +222,12 @@
     transform: none !important;
   }
 
+  /* Скрываем декоративные элементы параллакса на мобильных */
+  .hero__particles,
+  .hero__lines {
+    display: none !important;
+  }
+
   .hero__scroll-indicator {
     display: none;
   }
