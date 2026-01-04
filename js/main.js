@@ -71,7 +71,6 @@
 
         const rect = parent.getBoundingClientRect();
         const parentTop = rect.top + scrollY;
-        const parentHeight = parent.offsetHeight;
         
         // Проверяем, виден ли элемент
         if (rect.bottom < 0 || rect.top > viewportHeight) {
@@ -204,7 +203,7 @@
         '.section__header, .about__inner, .calculator-card, .book__inner, ' +
         '.video-card, .blog-card, .testimonial-card, .contact__inner, ' +
         '.experience-card, .experience__quote, .teaching__inner, ' +
-        '.tools-bridge__inner, .audience-card'
+        '.tools-bridge__inner, .audience-card, .parallax-divider__content'
       );
 
       if (!this.animatedElements.length) return;
