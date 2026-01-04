@@ -346,12 +346,18 @@ p {
 
 .parallax-layer {
   position: absolute;
-  top: -20%;
+  top: -30%;
   left: 0;
   right: 0;
-  bottom: -20%;
+  bottom: -30%;
   will-change: transform;
   pointer-events: none;
+}
+
+/* Усиленный параллакс для Hero */
+.hero .parallax-layer {
+  top: -50%;
+  bottom: -50%;
 }
 
 .parallax-layer img,
